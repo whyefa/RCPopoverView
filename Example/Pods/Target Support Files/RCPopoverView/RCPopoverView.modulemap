@@ -1,0 +1,6 @@
+framework module RCPopoverView {
+  umbrella header "RCPopoverView-umbrella.h"
+
+  export *
+  module * { export * }
+}

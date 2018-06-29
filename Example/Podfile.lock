@@ -1,0 +1,16 @@
+PODS:
+  - RCPopoverView (0.1.0)
+
+DEPENDENCIES:
+  - RCPopoverView (from `../`)
+
+EXTERNAL SOURCES:
+  RCPopoverView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RCPopoverView: 95f1afb252d931ff84c9fceaa5b42fe208d1f7b4
+
+PODFILE CHECKSUM: 143ef380026e9a20c1ac93d79f36591814f5abfc
+
+COCOAPODS: 1.5.3

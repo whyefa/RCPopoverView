@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RCPopoverView_Example' do
+  pod 'RCPopoverView', :path => '../'
+
+  target 'RCPopoverView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
