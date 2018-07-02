@@ -9,15 +9,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RCPopoverView_Tests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>RCPopoverView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

@@ -2,15 +2,15 @@ PODS:
   - RCPopoverView (0.1.0)
 
 DEPENDENCIES:
-  - RCPopoverView (from `../`)
+  - RCPopoverView (~> 0.1.0)
 
-EXTERNAL SOURCES:
-  RCPopoverView:
-    :path: "../"
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RCPopoverView
 
 SPEC CHECKSUMS:
-  RCPopoverView: 95f1afb252d931ff84c9fceaa5b42fe208d1f7b4
+  RCPopoverView: d69310837a5d0d2a2268382aa1af20382d230ed3
 
-PODFILE CHECKSUM: 143ef380026e9a20c1ac93d79f36591814f5abfc
+PODFILE CHECKSUM: 06281dc0d5857f0155903463f11883d1d625f252
 
 COCOAPODS: 1.5.3
