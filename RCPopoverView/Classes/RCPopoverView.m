@@ -432,7 +432,6 @@ float RCPopoverViewDegreesToRadians(float angle)
 
 - (void)setBorderStyle:(RCPopoverViewBorderStyle)borderStyle {
     _borderStyle = borderStyle;
-    _shadeView.backgroundColor = (borderStyle == RCPopoverViewBorderStyleDark) ? [UIColor colorWithWhite:0.f alpha:0.18f] : UIColor.clearColor;
     if (_borderLayer) {
         _borderLayer.strokeColor = (borderStyle != RCPopoverViewBorderStyleBoarder) ? [UIColor clearColor].CGColor : _tableView.separatorColor.CGColor;
     }
@@ -441,6 +440,7 @@ float RCPopoverViewDegreesToRadians(float angle)
 - (void)setStyle:(RCPopoverViewStyle)style {
     _style = style;
     _tableView.separatorColor = [RCPopoverViewCell bottomLineColorForStyle:_style];
+    _shadeView.backgroundColor = (style == RCPopoverViewStyleDefault) ? [UIColor colorWithWhite:0.f alpha:0.18f] : UIColor.clearColor;
     if (_style == RCPopoverViewStyleDefault) {
         self.backgroundColor = [UIColor whiteColor];
     }
@@ -450,3 +450,4 @@ float RCPopoverViewDegreesToRadians(float angle)
 }
 
 @end
+
