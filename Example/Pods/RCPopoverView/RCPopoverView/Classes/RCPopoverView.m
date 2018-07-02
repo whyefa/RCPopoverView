@@ -269,7 +269,7 @@ float RCPopoverViewDegreesToRadians(float angle)
     self.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
     [UIView animateWithDuration:0.25f animations:^{
         self.transform = CGAffineTransformIdentity;
-        _shadeView.alpha = 1.f;
+        self->_shadeView.alpha = 1.f;
     }];
 }
 
@@ -326,10 +326,10 @@ float RCPopoverViewDegreesToRadians(float angle)
 - (void)hide {
     [UIView animateWithDuration:0.25f animations:^{
         self.alpha = 0.f;
-        _shadeView.alpha = 0.f;
+        self->_shadeView.alpha = 0.f;
         self.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
     } completion:^(BOOL finished) {
-        [_shadeView removeFromSuperview];
+        [self->_shadeView removeFromSuperview];
         [self removeFromSuperview];
     }];
 }
@@ -390,7 +390,7 @@ float RCPopoverViewDegreesToRadians(float angle)
     if (indexPath.row == _actions.count-1) {
         cell.separatorInset = UIEdgeInsetsMake(0, self.windowWidth, 0, 0);
     } else {
-       cell.separatorInset = UIEdgeInsetsMake(0, self.separatorLeftMargin, 0, 0);
+        cell.separatorInset = UIEdgeInsetsMake(0, self.separatorLeftMargin, 0, 0);
     }
     return cell;
 }
@@ -398,12 +398,12 @@ float RCPopoverViewDegreesToRadians(float angle)
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [UIView animateWithDuration:0.25f animations:^{
         self.alpha = 0.f;
-        _shadeView.alpha = 0.f;
+        self->_shadeView.alpha = 0.f;
     } completion:^(BOOL finished) {
-        RCPopoverAction *action = _actions[indexPath.row];
+        RCPopoverAction *action = self->_actions[indexPath.row];
         action.handler ? action.handler(action) : NULL;
-        _actions = nil;
-        [_shadeView removeFromSuperview];
+        self->_actions = nil;
+        [self->_shadeView removeFromSuperview];
         [self removeFromSuperview];
     }];
 }
@@ -432,7 +432,6 @@ float RCPopoverViewDegreesToRadians(float angle)
 
 - (void)setBorderStyle:(RCPopoverViewBorderStyle)borderStyle {
     _borderStyle = borderStyle;
-    _shadeView.backgroundColor = (borderStyle == RCPopoverViewBorderStyleDark) ? [UIColor colorWithWhite:0.f alpha:0.18f] : UIColor.clearColor;
     if (_borderLayer) {
         _borderLayer.strokeColor = (borderStyle != RCPopoverViewBorderStyleBoarder) ? [UIColor clearColor].CGColor : _tableView.separatorColor.CGColor;
     }
@@ -441,6 +440,7 @@ float RCPopoverViewDegreesToRadians(float angle)
 - (void)setStyle:(RCPopoverViewStyle)style {
     _style = style;
     _tableView.separatorColor = [RCPopoverViewCell bottomLineColorForStyle:_style];
+    _shadeView.backgroundColor = (style == RCPopoverViewStyleDefault) ? [UIColor colorWithWhite:0.f alpha:0.18f] : UIColor.clearColor;
     if (_style == RCPopoverViewStyleDefault) {
         self.backgroundColor = [UIColor whiteColor];
     }
